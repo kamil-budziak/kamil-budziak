@@ -18,4 +18,11 @@ public class Flight
 	public DateTime ArrivalTime { get; set; }
 	public Airport DepartureAirport { get; set; }
 	public Airport ArrivalAirport { get; set; }
+
+	public double CalculateFlightTime()
+	{
+		TimeSpan time = ArrivalTime - DepartureTime;
+		int timeZoneDiff = (int)(DepartureAirport.TimeZone - ArrivalAirport.TimeZone) * 3600;
+        return time.TotalSeconds + timeZoneDiff;
+	}
 }

@@ -1,0 +1,5 @@
+G0CSC11	Lufthansa
+FCKTRMP	United Airlines
+ILOVEBJ	Qatar Airways
+INBOARD	Lufthansa
+TMPLHOF	LOT

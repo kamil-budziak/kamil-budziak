@@ -1,0 +1,8 @@
+LHR	London Heathrow
+LGA	London Gatwick
+WAW	Warsaw Chopin
+KTW	Katowice
+ICN	Seoul Incheon
+GMP	Seoul Gimpo
+DOH	Doha
+FRA	Frankfurt

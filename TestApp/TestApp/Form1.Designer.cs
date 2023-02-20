@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.FlightsView = new System.Windows.Forms.DataGridView();
             this.Flight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Airline = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DepartureAirport = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@
             this.txtBoxAirline = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FlightsView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,21 +56,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Date:";
             // 
-            // dataGridView1
+            // FlightsView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FlightsView.AllowUserToAddRows = false;
+            this.FlightsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.FlightsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Flight,
             this.Airline,
             this.DepartureAirport,
             this.Departure,
             this.Arrival,
             this.ArrivalAirport});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 67);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(904, 538);
-            this.dataGridView1.TabIndex = 1;
+            this.FlightsView.Location = new System.Drawing.Point(12, 67);
+            this.FlightsView.Name = "FlightsView";
+            this.FlightsView.RowTemplate.Height = 25;
+            this.FlightsView.Size = new System.Drawing.Size(904, 538);
+            this.FlightsView.TabIndex = 1;
+            this.FlightsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Flight
             // 
@@ -185,11 +187,12 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.FlightsView);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.FlightsView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,7 +201,7 @@
         #endregion
 
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView FlightsView;
         private DataGridViewTextBoxColumn Flight;
         private DataGridViewTextBoxColumn Airline;
         private DataGridViewTextBoxColumn DepartureAirport;
