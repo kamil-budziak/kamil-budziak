@@ -42,8 +42,8 @@
             this.BtnSearch = new System.Windows.Forms.Button();
             this.txtBoxDate = new System.Windows.Forms.TextBox();
             this.txtBoxAirline = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBoxDepAP = new System.Windows.Forms.TextBox();
+            this.txtBoxArrAP = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.FlightsView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,6 +145,7 @@
             this.BtnSearch.TabIndex = 5;
             this.BtnSearch.Text = "Search";
             this.BtnSearch.UseVisualStyleBackColor = true;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // txtBoxDate
             // 
@@ -160,27 +161,27 @@
             this.txtBoxAirline.Size = new System.Drawing.Size(199, 23);
             this.txtBoxAirline.TabIndex = 7;
             // 
-            // textBox1
+            // txtBoxDepAP
             // 
-            this.textBox1.Location = new System.Drawing.Point(385, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 23);
-            this.textBox1.TabIndex = 8;
+            this.txtBoxDepAP.Location = new System.Drawing.Point(385, 6);
+            this.txtBoxDepAP.Name = "txtBoxDepAP";
+            this.txtBoxDepAP.Size = new System.Drawing.Size(199, 23);
+            this.txtBoxDepAP.TabIndex = 8;
             // 
-            // textBox2
+            // txtBoxArrAP
             // 
-            this.textBox2.Location = new System.Drawing.Point(717, 6);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 23);
-            this.textBox2.TabIndex = 9;
+            this.txtBoxArrAP.Location = new System.Drawing.Point(717, 6);
+            this.txtBoxArrAP.Name = "txtBoxArrAP";
+            this.txtBoxArrAP.Size = new System.Drawing.Size(199, 23);
+            this.txtBoxArrAP.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(928, 617);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBoxArrAP);
+            this.Controls.Add(this.txtBoxDepAP);
             this.Controls.Add(this.txtBoxAirline);
             this.Controls.Add(this.txtBoxDate);
             this.Controls.Add(this.BtnSearch);
@@ -214,7 +215,7 @@
         private Button BtnSearch;
         private TextBox txtBoxDate;
         private TextBox txtBoxAirline;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtBoxDepAP;
+        private TextBox txtBoxArrAP;
     }
 }

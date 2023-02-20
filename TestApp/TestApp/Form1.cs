@@ -78,17 +78,68 @@ namespace TestApp
                 FlightsView.Rows[index].Cells[3].Value = f.DepartureTime.ToString();
                 FlightsView.Rows[index].Cells[4].Value = f.ArrivalTime.ToString();
                 FlightsView.Rows[index].Cells[5].Value = f.ArrivalAirport.Name;
-
             }
         }
         public List<Airline> Airlines = new List<Airline>();
         public List<Flight> Flights = new List<Flight>();
         public List<Plane> Planes = new List<Plane>();
         public List<Airport> Airports = new List<Airport>();
+        bool searchFlights = false;
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            if (searchFlights)
+            {
+                fillFlights(Flights);
+                searchFlights = false;
+            }
+            else
+            {
+                List<Flight> searchedFlights = new List<Flight>();
+                foreach(Flight f in Flights)
+                {
+                    bool addCondition = true;
+                    if(txtBoxDepAP.Text != "" && txtBoxDepAP.Text != f.DepartureAirport.Name && txtBoxDepAP.Text != f.DepartureAirport.IataCode)
+                    {
+                        addCondition = false;
+                    }
+                    if (txtBoxArrAP.Text != "" && txtBoxArrAP.Text != f.ArrivalAirport.Name && txtBoxArrAP.Text != f.ArrivalAirport.IataCode)
+                    {
+                        addCondition = false;
+                    }
+                    if (txtBoxAirline.Text != "" && txtBoxAirline.Text != f.plane.airline.Name && txtBoxAirline.Text != f.plane.airline.Name)
+                    {
+                        addCondition = false;
+                    }
+                    if (addCondition)
+                    {
+                        searchedFlights.Add(f);
+                    }
+                }
+                fillFlights(searchedFlights);
+            }
+
+        }
+        private void fillFlights(List<Flight> fl)
+        {
+            FlightsView.Rows.Clear();
+            foreach (Flight f in fl)
+            {
+                DataGridViewRow r = new DataGridViewRow();
+                FlightsView.Rows.Add(r);
+                int index = FlightsView.Rows.Count - 1;
+                FlightsView.Rows[index].Cells[0].Value = f.FlightNumber;
+                FlightsView.Rows[index].Cells[1].Value = f.plane.airline.Name;
+                FlightsView.Rows[index].Cells[2].Value = f.DepartureAirport.Name;
+                FlightsView.Rows[index].Cells[3].Value = f.DepartureTime.ToString();
+                FlightsView.Rows[index].Cells[4].Value = f.ArrivalTime.ToString();
+                FlightsView.Rows[index].Cells[5].Value = f.ArrivalAirport.Name;
+            }
         }
     }
 }
