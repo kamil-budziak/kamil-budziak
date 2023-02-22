@@ -97,6 +97,7 @@ namespace TestApp
             {
                 fillFlights(Flights);
                 searchFlights = false;
+                BtnSearch.BackColor = Color.LightPink;
             }
             else
             {
@@ -112,7 +113,11 @@ namespace TestApp
                     {
                         addCondition = false;
                     }
-                    if (txtBoxAirline.Text != "" && txtBoxAirline.Text != f.plane.airline.Name && txtBoxAirline.Text != f.plane.airline.Name)
+                    if (txtBoxAirline.Text != "" && txtBoxAirline.Text != f.plane.airline.Name)
+                    {
+                        addCondition = false;
+                    }
+                    if (txtBoxYear.Text != "" && (int.Parse(txtBoxYear.Text) != f.DepartureTime.Year || int.Parse(txtBoxMonth.Text) != f.DepartureTime.Month || int.Parse(txtBoxDay.Text) != f.DepartureTime.Day))
                     {
                         addCondition = false;
                     }
@@ -120,10 +125,12 @@ namespace TestApp
                     {
                         searchedFlights.Add(f);
                     }
+                    
                 }
                 fillFlights(searchedFlights);
+                searchFlights = true;
+                BtnSearch.BackColor = Color.LightGreen;
             }
-
         }
         private void fillFlights(List<Flight> fl)
         {
@@ -131,6 +138,7 @@ namespace TestApp
             foreach (Flight f in fl)
             {
                 DataGridViewRow r = new DataGridViewRow();
+                r.ReadOnly = true;
                 FlightsView.Rows.Add(r);
                 int index = FlightsView.Rows.Count - 1;
                 FlightsView.Rows[index].Cells[0].Value = f.FlightNumber;

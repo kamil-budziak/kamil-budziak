@@ -6,3 +6,7 @@ ICN	Seoul Incheon
 GMP	Seoul Gimpo
 DOH	Doha
 FRA	Frankfurt
+JFK	New York JFK
+LAX	Los Angeles
+BER	Berlin Brandenburg
+CJU	Jeju
